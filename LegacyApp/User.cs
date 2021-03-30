@@ -45,7 +45,10 @@ namespace LegacyApp
                 {
                     return -1;
                 }
-                else if (creditLimit == null)
+                else if (creditLimit == null &&
+                    Firstname != null && 
+                    Surname != null && 
+                    DateOfBirth != default(DateTime))
                 {
 #if DEBUG
                     creditLimit = 700;
@@ -56,7 +59,7 @@ namespace LegacyApp
                     }
 #endif
                 }
-                return creditLimit.Value;
+                return creditLimit.GetValueOrDefault();
             }
         }
 
